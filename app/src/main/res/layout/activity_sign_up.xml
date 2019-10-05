@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#DF726B"
+    tools:context=".SignUp">
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textColor="#A04F81"
+        android:textSize="30dp"
+        android:hint="이름" />
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textColor="#A04F81"
+        android:textSize="30dp"
+        android:hint="ID" />
+
+    <EditText
+        android:id="@+id/PW"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textColor="#A04F81"
+        android:textSize="30dp"
+        android:hint="PW" />
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="131dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:background="#F07853"
+        android:text='확인'
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+
+</LinearLayout>

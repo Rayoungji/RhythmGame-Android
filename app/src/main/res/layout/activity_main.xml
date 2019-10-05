@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DF726B"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="도전!!"
+        android:textColor="#F8C635"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:text="테트리스 게임"
+        android:textColor="#F89404"
+        android:textSize="40dp" />
+
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="131dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:background="#F07853"
+        android:text="로그인"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="131dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="#F07853"
+        android:text="회원가입"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+
+
+</LinearLayout>
