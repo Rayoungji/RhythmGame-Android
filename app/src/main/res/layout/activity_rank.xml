@@ -11,11 +11,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/sangmoon"
         android:gravity="center"
-        android:text="랭킹페이지"
-        android:textColor="#FFFF"
-        android:textSize="40dp"
-        android:fontFamily="@font/sangmoon"/>
+        android:text="RANKING"
+        android:textColor="#E9B213"
+        android:textSize="40dp" />
+
+    <ListView
+        android:id="@+id/Rank"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="#EEECDC">
+
+    </ListView>
 
 </LinearLayout>
