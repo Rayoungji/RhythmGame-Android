@@ -5,61 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#DF726B"
+    android:background="@drawable/tetrisgamebackground"
     tools:context=".SecondMain">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:text="도전!!"
-        android:textColor="#F8C635"
-        android:textSize="40dp" />
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="45dp"
-        android:gravity="center"
-        android:text="테트리스 게임"
-        android:textColor="#F89404"
-        android:textSize="40dp" />
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="T"
+            android:textColor="#F44336"
+            android:textSize="70dp" />
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="58dp">-->
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="E"
+            android:textColor="#13DB1A"
+            android:textSize="70dp" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/User"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="160dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Usar님"-->
-<!--            android:textColor="#FDFDFD"-->
-<!--            android:textSize="25dp" />-->
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="T"
+            android:textColor="#E4931D"
+            android:textSize="70dp" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/UserHi"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="250dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="반갑습니다!!"-->
-<!--            android:textColor="#7A55BB"-->
-<!--            android:textSize="25dp" />-->
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="R"
+            android:textColor="#1939E7"
+            android:textSize="70dp" />
 
-<!--    </RelativeLayout>-->
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:gravity="center"
+            android:text="I"
+            android:textColor="#763BE2"
+            android:textSize="70dp" />
+
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="S"
+            android:textColor="#6BD16F"
+            android:textSize="70dp" />
+
+    </LinearLayout>
 
     <Button
-        android:layout_marginTop="30dp"
         android:id="@+id/Start"
         android:layout_width="131dp"
         android:layout_height="61dp"
         android:layout_gravity="center"
-        android:background="#F07853"
-        android:text="게임 시작"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
+        android:text="게임시작"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
@@ -68,9 +85,9 @@
         android:layout_width="131dp"
         android:layout_height="61dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="#F07853"
-        android:text="랭킹 보기"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
+        android:text="랭킹보기"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
@@ -80,10 +97,10 @@
         android:layout_height="61dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="#F07853"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
         android:text="로그아웃"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
-
 
 </LinearLayout>

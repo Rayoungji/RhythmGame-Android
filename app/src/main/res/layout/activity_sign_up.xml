@@ -5,47 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#DF726B"
+    android:background="@drawable/tetrisgamebackground"
     tools:context=".SignUp">
 
-    <EditText
-        android:id="@+id/Name"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
-        android:layout_width="350dp"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#A04F81"
-        android:textSize="30dp"
-        android:hint="이름" />
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="회원가입"
+        android:textColor="#FFFF"
+        android:textSize="40dp"
+        android:fontFamily="@font/sangmoon"/>
 
     <EditText
-        android:id="@+id/ID"
+        android:id="@+id/SignUp_Name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:colorControlNormal="#FFFFFF"
+        android:fontFamily="@font/sangmoon"
+        android:hint="이름"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/SignUp_ID"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:textColor="#A04F81"
+        android:fontFamily="@font/sangmoon"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:hint="ID" />
 
     <EditText
-        android:id="@+id/PW"
+        android:id="@+id/SignUp_PW"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:textColor="#A04F81"
+        android:fontFamily="@font/sangmoon"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:hint="PW" />
 
     <Button
-        android:id="@+id/Login"
+        android:id="@+id/SignUp"
         android:layout_width="131dp"
         android:layout_height="61dp"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:background="#F07853"
-        android:text='확인'
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
+        android:text="확인"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
 

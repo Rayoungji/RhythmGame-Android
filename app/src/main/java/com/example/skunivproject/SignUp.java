@@ -19,10 +19,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Name=(EditText)findViewById(R.id.Name);
-        ID=(EditText)findViewById(R.id.ID);
-        PW=(EditText)findViewById(R.id.PW);
-        Login=(Button)findViewById(R.id.Login);
+        Name=(EditText)findViewById(R.id.SignUp_Name);
+        ID=(EditText)findViewById(R.id.SignUp_ID);
+        PW=(EditText)findViewById(R.id.SignUp_PW);
+        Login=(Button)findViewById(R.id.SignUp);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

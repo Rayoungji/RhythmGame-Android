@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/tetrisgamebackground"
     tools:context=".GameDone">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/GamDone"
-        android:text="이곳은 게임 결과 페이지 입니다"
-        android:textSize="30dp"/>
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="게임결과페이지"
+        android:textColor="#FFFF"
+        android:textSize="40dp"
+        android:fontFamily="@font/sangmoon"/>
 
 </LinearLayout>

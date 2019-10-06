@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/tetrisgamebackground"
     tools:context=".Rank">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/RankPage"
-        android:text="이곳은 랭킹 페이지 입니다"
-        android:textSize="30dp"/>
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="랭킹페이지"
+        android:textColor="#FFFF"
+        android:textSize="40dp"
+        android:fontFamily="@font/sangmoon"/>
 
 </LinearLayout>

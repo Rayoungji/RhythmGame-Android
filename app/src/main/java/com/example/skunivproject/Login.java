@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
 
         ID=(EditText)findViewById(R.id.ID);
         PW=(EditText)findViewById(R.id.PW);
-        startBtn=(Button)findViewById(R.id.startBtn);
+        startBtn=(Button)findViewById(R.id.Login);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
