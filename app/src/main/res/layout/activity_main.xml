@@ -4,44 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DF726B"
+    android:background="@drawable/tetrisbackground"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginTop="80dp"
+    android:layout_marginBottom="40dp"
+    android:orientation="horizontal">
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width='60dp'
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:text="도전!!"
-        android:textColor="#F8C635"
-        android:textSize="40dp" />
+        android:fontFamily="@font/sangmoon"
+        android:text="T"
+        android:textColor="#F44336"
+        android:textSize="70dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width='60dp'
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:text="도전!!"
-        android:textColor="#F8C635"
-        android:textSize="40dp" />
+        android:fontFamily="@font/sangmoon"
+        android:text="E"
+        android:textColor="#13DB1A"
+        android:textSize="70dp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="60dp"
-        android:gravity="center"
-        android:text="테트리스 게임"
-        android:textColor="#F89404"
-        android:textSize="40dp" />
+        android:layout_width='60dp'
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sangmoon"
+        android:text="T"
+        android:textColor="#E4931D"
+        android:textSize="70dp" />
 
+    <TextView
+        android:layout_width='60dp'
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sangmoon"
+        android:text="R"
+        android:textColor="#1939E7"
+        android:textSize="70dp" />
+
+    <TextView
+        android:layout_width='60dp'
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sangmoon"
+        android:text="I"
+        android:textColor="#763BE2"
+        android:textSize="70dp" />
+
+    <TextView
+        android:layout_width='60dp'
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sangmoon"
+        android:text="S"
+        android:textColor="#6BD16F"
+        android:textSize="70dp" />
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/HowTo"
+        android:layout_width="131dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
+        android:text="게임소개"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/Login"
         android:layout_width="131dp"
         android:layout_height="61dp"
         android:layout_gravity="center"
-        android:background="#F07853"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
         android:text="로그인"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
@@ -52,7 +96,8 @@
         android:layout_height="61dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="#F07853"
+        android:background="#7545CA"
+        android:fontFamily="@font/sangmoon"
         android:text="회원가입"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
