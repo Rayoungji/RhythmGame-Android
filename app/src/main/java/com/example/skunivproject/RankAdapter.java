@@ -47,9 +47,9 @@ public class RankAdapter extends BaseAdapter {
         TextView PlayerId=(TextView)view.findViewById(R.id.PlayerId);
         TextView Score=(TextView)view.findViewById(R.id.Score);
 
-        RankNum.setText(Data.get(position).getRankNum());
+        RankNum.setText(Integer.toString(Data.get(position).getRankNum()));
         PlayerId.setText(Data.get(position).getPlayerId());
-        Score.setText(Data.get(position).getScore());
+        Score.setText(Integer.toString(Data.get(position).getScore()));
 
         return  view;
     }
