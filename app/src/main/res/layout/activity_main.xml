@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tetrisbackground"
+    android:background="@drawable/rythmbackground2"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -12,15 +12,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:layout_marginTop="80dp"
-    android:layout_marginBottom="40dp"
+    android:layout_marginTop="50dp"
     android:orientation="horizontal">
 
     <TextView
         android:layout_width='60dp'
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
-        android:text="T"
+        android:text="R"
         android:textColor="#F44336"
         android:textSize="70dp" />
 
@@ -28,7 +27,7 @@
         android:layout_width='60dp'
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
-        android:text="E"
+        android:text="H"
         android:textColor="#13DB1A"
         android:textSize="70dp" />
 
@@ -36,7 +35,7 @@
         android:layout_width='60dp'
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
-        android:text="T"
+        android:text="Y"
         android:textColor="#E4931D"
         android:textSize="70dp" />
 
@@ -44,7 +43,7 @@
         android:layout_width='60dp'
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
-        android:text="R"
+        android:text="T"
         android:textColor="#1939E7"
         android:textSize="70dp" />
 
@@ -53,7 +52,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
         android:gravity="center"
-        android:text="I"
+        android:text="H"
         android:textColor="#763BE2"
         android:textSize="70dp" />
 
@@ -61,11 +60,52 @@
         android:layout_width='60dp'
         android:layout_height="wrap_content"
         android:fontFamily="@font/sangmoon"
-        android:text="S"
+        android:text="M"
         android:textColor="#6BD16F"
         android:textSize="70dp" />
 
 </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="G"
+            android:textColor="#F44336"
+            android:textSize="70dp" />
+
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="A"
+            android:textColor="#13DB1A"
+            android:textSize="70dp" />
+
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="M"
+            android:textColor="#E4931D"
+            android:textSize="70dp" />
+
+        <TextView
+            android:layout_width='60dp'
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sangmoon"
+            android:text="E"
+            android:textColor="#1939E7"
+            android:textSize="70dp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/HowTo"
