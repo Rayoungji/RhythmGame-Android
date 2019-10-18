@@ -5,17 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/tetrisgamebackground"
+    android:background="@drawable/rythmbackground"
     tools:context=".GamePage">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:gravity="center"
-        android:text="게임페이지"
-        android:textColor="#FFFF"
-        android:textSize="40dp"
-        android:fontFamily="@font/sangmoon"/>
+        android:layout_height="match_parent"
+        android:layout_weight="13">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/sangmoon"
+            android:gravity="center"
+            android:text="SELECT MUSIC"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp" />
+
+    </LinearLayout>
+
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:id="@+id/th">
+
+        <TabWidget
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@android:id/tabs"/>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="70sp">
+
+            <LinearLayout
+                android:id="@+id/tab_view1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Gallery
+                    android:id="@+id/gallery1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spacing="20dp"
+                    android:unselectedAlpha="0.2" />
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/abc_btn_radio_to_on_mtrl_000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab_view2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <Gallery
+                    android:id="@+id/gallery2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spacing="20dp"
+                    android:unselectedAlpha="0.2" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/abc_btn_radio_to_on_mtrl_000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab_view3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="세번째 창"
+                    android:textColor="#FF0000"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </TabHost>
 </LinearLayout>

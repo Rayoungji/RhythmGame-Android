@@ -77,7 +77,7 @@
             android:layout_width='60dp'
             android:layout_height="wrap_content"
             android:fontFamily="@font/sangmoon"
-            android:text="G"
+            android:text="S"
             android:textColor="#F44336"
             android:textSize="70dp" />
 
@@ -85,7 +85,7 @@
             android:layout_width='60dp'
             android:layout_height="wrap_content"
             android:fontFamily="@font/sangmoon"
-            android:text="A"
+            android:text="T"
             android:textColor="#13DB1A"
             android:textSize="70dp" />
 
@@ -93,7 +93,7 @@
             android:layout_width='60dp'
             android:layout_height="wrap_content"
             android:fontFamily="@font/sangmoon"
-            android:text="M"
+            android:text="A"
             android:textColor="#E4931D"
             android:textSize="70dp" />
 
@@ -101,7 +101,7 @@
             android:layout_width='60dp'
             android:layout_height="wrap_content"
             android:fontFamily="@font/sangmoon"
-            android:text="E"
+            android:text="R"
             android:textColor="#1939E7"
             android:textSize="70dp" />
 
