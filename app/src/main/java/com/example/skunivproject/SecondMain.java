@@ -10,6 +10,7 @@ import android.widget.Button;
 public class SecondMain extends AppCompatActivity {
 
     Button Start,Rank,Logout;
+    Button practice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,8 @@ public class SecondMain extends AppCompatActivity {
         Start=(Button)findViewById(R.id.Start);
         Rank=(Button)findViewById(R.id.Rank);
         Logout=(Button)findViewById(R.id.Logout);
+
+        practice=(Button)findViewById(R.id.practice);
 
         Start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,5 +46,13 @@ public class SecondMain extends AppCompatActivity {
                 startActivity(Logout);
             }
         });
+
+//        practice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent practice=new Intent(getApplicationContext(),practice.class);
+//                startActivity(practice);
+//            }
+//        });
     }
 }

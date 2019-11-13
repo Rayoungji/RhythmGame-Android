@@ -22,7 +22,7 @@
             android:background="#8C53B4"
             android:fontFamily="@font/sangmoon"
             android:gravity="center"
-            android:text="게임 진행 페이지"
+            android:text="연습화면"
             android:textColor="#FFFFFF"
             android:textSize="40dp" />
 
@@ -31,10 +31,10 @@
             android:layout_height="match_parent">
 
             <ImageView
-            android:layout_marginLeft="30dp"
-            android:layout_width="70dp"
-            android:layout_height="610dp"
-            android:src="@drawable/noterout"/>
+                android:layout_marginLeft="30dp"
+                android:layout_width="70dp"
+                android:layout_height="610dp"
+                android:src="@drawable/noterout"/>
 
             <ImageView
                 android:id="@+id/note1"
@@ -98,7 +98,7 @@
 
         </RelativeLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout

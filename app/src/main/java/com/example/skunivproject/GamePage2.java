@@ -1,3 +1,5 @@
+
+
 package com.example.skunivproject;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Random;
 
 
 //게임 실행화면에 대한 메인 스레드
@@ -38,27 +41,28 @@ public class GamePage2 extends AppCompatActivity {
         note2=(ImageView)findViewById(R.id.note2);
         note3=(ImageView)findViewById(R.id.note3);
         note4=(ImageView)findViewById(R.id.note4);
+
         anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.translate);
-
         progressHandler=new ProgressHandler();
-        Runnable runnable=new Runnable();
-        Runnable1 runnable1=new Runnable1();
-        Runnable2 runnable2=new Runnable2();
-        Runnable3 runnable3=new Runnable3();
-        //스레드 설정
-        Thread thread=new Thread(runnable);
-        thread.setDaemon(true);
-        Thread thread1=new Thread(runnable1);
-        thread1.setDaemon(true);
-        Thread thread2=new Thread(runnable2);
-        thread2.setDaemon(true);
-        Thread thread3=new Thread(runnable3);
-        thread3.setDaemon(true);
-        thread.start();
-        thread1.start();
-        thread2.start();
-        thread3.start();
 
+        FinalThread threadFinal = new FinalThread();
+        threadFinal.start();
+
+//        progressHandler=new ProgressHandler();
+//        MultiThread runnable1 = new MultiThread(1,10);
+//        MultiThread runnable2 = new MultiThread(2, 10);
+//        MultiThread runnable3 = new MultiThread(3,10);
+//        MultiThread runnable4 = new MultiThread(4,10);
+//
+//        //스레드 설정
+//        Thread thread1=new Thread(runnable1);
+//        Thread thread2=new Thread(runnable2);
+//        Thread thread3=new Thread(runnable3);
+//        Thread thread4=new Thread(runnable4);
+//        thread1.start();
+//        thread2.start();
+//        thread3.start();
+//        thread4.start();
 
         //인텐트로 음악제목 가져오기
         Intent intent=getIntent();
@@ -70,7 +74,7 @@ public class GamePage2 extends AppCompatActivity {
         //가져온 제목에 맞는 음악 재생하기
         if(a.equals(imageName)) {
             mp= MediaPlayer.create(
-                getApplicationContext(), R.raw.wishyouweregay);
+                    getApplicationContext(), R.raw.wishyouweregay);
             mp.start();
 
         }
@@ -124,6 +128,7 @@ public class GamePage2 extends AppCompatActivity {
         });
 
     }
+
     class ProgressHandler extends Handler {
 
         //받은 메세지를 처리해주는 메소드
@@ -132,101 +137,87 @@ public class GamePage2 extends AppCompatActivity {
             super.handleMessage(msg);
 
             switch (msg.what){
-                case 0:
-                    note1.startAnimation(anim);
-
-
                 case 1:
-                    note2.startAnimation(anim);
+                    //note1.startAnimation(anim);
 
+                    note1.setY(note1.getY()+7);
+                    break;
 
                 case 2:
-                    note3.startAnimation(anim);
-
+                    //note2.startAnimation(anim);
+                    note2.setY(note2.getY()+5);
+                    break;
 
                 case 3:
-                    note4.startAnimation(anim);
+                    //note3.startAnimation(anim);
+                    note3.setY(note3.getY()+8);
+                    break;
+
+                case 4:
+                    //note4.startAnimation(anim);
+                    note4.setY(note4.getY()+4);
+                    break;
 
 
             }
         }
     }
 
-    class Runnable implements java.lang.Runnable{
+    class MultiThread extends Thread{
+        private final int threadNum;
+        private final int sleepNum;
+        float x,y;
+
+        public MultiThread(int threadNum,int sleepNum){
+            this.threadNum = threadNum;
+            this.sleepNum=sleepNum;
+        }
 
         @Override
         public void run() {
-            Looper.prepare(); //루퍼만들기
 
-            while(true){
-                //sendMessage와 같은 개념
-                progressHandler.sendEmptyMessage(0);
+            try{
 
-                try{
-                    Thread.sleep(3000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
+                while(true){
+                    progressHandler.sendEmptyMessage(threadNum);
+                    Thread.sleep(10);}
+
+            }catch (InterruptedException e){
+                e.printStackTrace();
             }
+            Thread.interrupted();
         }
     }
 
-    class Runnable1 implements java.lang.Runnable{
+        class FinalThread extends Thread{
 
-        @Override
-        public void run() {
-            Looper.prepare(); //루퍼만들기
+            @Override
+            public void run() {
+                while(true){
+//                    progressHandler=new ProgressHandler();
+                    MultiThread runnable1 = new MultiThread(1,10);
+                    MultiThread runnable2 = new MultiThread(2, 10);
+                    MultiThread runnable3 = new MultiThread(3,10);
+                    MultiThread runnable4 = new MultiThread(4,10);
 
-            while(true){
-                //sendMessage와 같은 개념
-                progressHandler.sendEmptyMessage(1);
-
-                try{
-                    Thread.sleep(5000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
+                    //스레드 설정
+                    Thread thread1=new Thread(runnable1);
+                    Thread thread2=new Thread(runnable2);
+                    Thread thread3=new Thread(runnable3);
+                    Thread thread4=new Thread(runnable4);
+                    thread1.start();
+                    thread2.start();
+                    thread3.start();
+                    thread4.start();
+                    try{
+                        Thread.sleep(6000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
-    }
 
-    class Runnable2 implements java.lang.Runnable{
-
-        @Override
-        public void run() {
-            Looper.prepare(); //루퍼만들기
-
-            while(true){
-                //sendMessage와 같은 개념
-                progressHandler.sendEmptyMessage(2);
-
-                try{
-                    Thread.sleep(4000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    class Runnable3 implements java.lang.Runnable{
-
-        @Override
-        public void run() {
-            Looper.prepare(); //루퍼만들기
-
-            while(true){
-                //sendMessage와 같은 개념
-                progressHandler.sendEmptyMessage(3);
-
-                try{
-                    Thread.sleep(6000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 }
 
 
