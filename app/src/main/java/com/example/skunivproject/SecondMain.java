@@ -47,12 +47,12 @@ public class SecondMain extends AppCompatActivity {
             }
         });
 
-//        practice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent practice=new Intent(getApplicationContext(),practice.class);
-//                startActivity(practice);
-//            }
-//        });
+        practice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent practice=new Intent(getApplicationContext(),practice.class);
+                startActivity(practice);
+            }
+        });
     }
 }

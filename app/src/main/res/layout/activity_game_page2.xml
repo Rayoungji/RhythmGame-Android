@@ -27,74 +27,39 @@
             android:textSize="40dp" />
 
         <RelativeLayout
+            android:id="@+id/RelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/image1"
             android:layout_marginLeft="30dp"
             android:layout_width="70dp"
             android:layout_height="610dp"
             android:src="@drawable/noterout"/>
 
-            <ImageView
-                android:id="@+id/note1"
-                android:layout_marginLeft="35dp"
-                android:layout_width="60dp"
-                android:layout_height="27dp"
-                android:background="@drawable/note"/>
 
             <ImageView
+                android:id="@+id/image2"
                 android:layout_marginLeft="130dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
                 android:src="@drawable/noterout"/>
 
-            <ImageView
-                android:id="@+id/note2"
-                android:layout_marginLeft="135dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/note"/>
 
             <ImageView
+                android:id="@+id/image3"
                 android:layout_marginLeft="230dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
                 android:src="@drawable/noterout"/>
 
             <ImageView
-                android:id="@+id/note3"
-                android:layout_marginLeft="235dp"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:src="@drawable/note"/>
-
-            <ImageView
+                android:id="@+id/image4"
                 android:layout_marginLeft="320dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
                 android:src="@drawable/noterout"/>
-
-            <ImageView
-                android:id="@+id/note4"
-                android:layout_marginTop="330dp"
-                android:layout_marginLeft="325dp"
-                android:layout_width="60dp"
-                android:layout_height="100dp"
-                android:src="@drawable/note"/>
-
-            <ImageView
-                android:layout_marginTop="350dp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@drawable/judgeline"/>
-
-            <ImageView
-                android:layout_marginTop="375dp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@drawable/judgeline"/>
-
 
         </RelativeLayout>
 

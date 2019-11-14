@@ -5,7 +5,6 @@ package com.example.skunivproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -18,51 +17,58 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import java.util.Random;
-
+import java.util.ArrayList;
 
 //게임 실행화면에 대한 메인 스레드
 public class GamePage2 extends AppCompatActivity {
 
     MediaPlayer mp;
     ImageView note1,note2,note3,note4;
-    Animation anim;
+    Button btn;
 
-    ProgressHandler progressHandler;
+    ImageView[] img_array=new ImageView[4];
+    int[] imageID={R.id.image1,R.id.image2,R.id.image3,R.id.image4};
+
+    final String TAG_ON="on";
+    final String TAG_OFF = "off";
+    int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page2);
 
-        Button btn=(Button)findViewById(R.id.exit);
-        note1=(ImageView)findViewById(R.id.note1);
-        note2=(ImageView)findViewById(R.id.note2);
-        note3=(ImageView)findViewById(R.id.note3);
-        note4=(ImageView)findViewById(R.id.note4);
+        btn=(Button)findViewById(R.id.exit);
+        note1=(ImageView)findViewById(R.id.image1);
+        note2=(ImageView)findViewById(R.id.image2);
+        note3=(ImageView)findViewById(R.id.image3);
+        note4=(ImageView)findViewById(R.id.image4);
 
-        anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.translate);
-        progressHandler=new ProgressHandler();
+        for(int i=0; i<img_array.length; i++){
+            img_array[i]=(ImageView)findViewById(imageID[i]);
+            img_array[i].setImageResource(R.drawable.noteroutchange);
+            img_array[i].setTag(TAG_OFF);
 
-        FinalThread threadFinal = new FinalThread();
-        threadFinal.start();
-
-//        progressHandler=new ProgressHandler();
-//        MultiThread runnable1 = new MultiThread(1,10);
-//        MultiThread runnable2 = new MultiThread(2, 10);
-//        MultiThread runnable3 = new MultiThread(3,10);
-//        MultiThread runnable4 = new MultiThread(4,10);
-//
-//        //스레드 설정
-//        Thread thread1=new Thread(runnable1);
-//        Thread thread2=new Thread(runnable2);
-//        Thread thread3=new Thread(runnable3);
-//        Thread thread4=new Thread(runnable4);
-//        thread1.start();
-//        thread2.start();
-//        thread3.start();
-//        thread4.start();
+            img_array[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(((ImageView)v).getTag().toString().equals(TAG_ON)){
+                        Toast.makeText(getApplicationContext()."good",Toast.LENGTH_LONG).show();
+                        score++;
+                        ((ImageView)v).setImageResource(R.drawable.noteroutchange);
+                        v.setTag(TAG_OFF);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"bad",Toast.LENGTH_LONG).show();
+                        if(score<=0){
+                            score=0;
+                        }
+                    }
+                }
+            });
+        }
 
         //인텐트로 음악제목 가져오기
         Intent intent=getIntent();
@@ -128,95 +134,6 @@ public class GamePage2 extends AppCompatActivity {
         });
 
     }
-
-    class ProgressHandler extends Handler {
-
-        //받은 메세지를 처리해주는 메소드
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-
-            switch (msg.what){
-                case 1:
-                    //note1.startAnimation(anim);
-
-                    note1.setY(note1.getY()+7);
-                    break;
-
-                case 2:
-                    //note2.startAnimation(anim);
-                    note2.setY(note2.getY()+5);
-                    break;
-
-                case 3:
-                    //note3.startAnimation(anim);
-                    note3.setY(note3.getY()+8);
-                    break;
-
-                case 4:
-                    //note4.startAnimation(anim);
-                    note4.setY(note4.getY()+4);
-                    break;
-
-
-            }
-        }
-    }
-
-    class MultiThread extends Thread{
-        private final int threadNum;
-        private final int sleepNum;
-        float x,y;
-
-        public MultiThread(int threadNum,int sleepNum){
-            this.threadNum = threadNum;
-            this.sleepNum=sleepNum;
-        }
-
-        @Override
-        public void run() {
-
-            try{
-
-                while(true){
-                    progressHandler.sendEmptyMessage(threadNum);
-                    Thread.sleep(10);}
-
-            }catch (InterruptedException e){
-                e.printStackTrace();
-            }
-            Thread.interrupted();
-        }
-    }
-
-        class FinalThread extends Thread{
-
-            @Override
-            public void run() {
-                while(true){
-//                    progressHandler=new ProgressHandler();
-                    MultiThread runnable1 = new MultiThread(1,10);
-                    MultiThread runnable2 = new MultiThread(2, 10);
-                    MultiThread runnable3 = new MultiThread(3,10);
-                    MultiThread runnable4 = new MultiThread(4,10);
-
-                    //스레드 설정
-                    Thread thread1=new Thread(runnable1);
-                    Thread thread2=new Thread(runnable2);
-                    Thread thread3=new Thread(runnable3);
-                    Thread thread4=new Thread(runnable4);
-                    thread1.start();
-                    thread2.start();
-                    thread3.start();
-                    thread4.start();
-                    try{
-                        Thread.sleep(6000);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
 
 }
 
