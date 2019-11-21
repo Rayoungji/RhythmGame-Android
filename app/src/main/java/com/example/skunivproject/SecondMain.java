@@ -24,7 +24,7 @@ public class SecondMain extends AppCompatActivity {
         Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GamePage=new Intent(getApplicationContext(),GamePage.class);
+                Intent GamePage=new Intent(getApplicationContext(), MusicSelect.class);
                 startActivity(GamePage);
             }
         });

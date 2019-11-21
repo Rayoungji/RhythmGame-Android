@@ -1,168 +1,152 @@
 package com.example.skunivproject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-
-import androidx.fragment.app.FragmentActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Gallery;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TabHost;
 
-public class GamePage extends FragmentActivity {
+import com.example.skunivproject.gameModel.Beat;
+import com.example.skunivproject.gameModel.RythmTimerTask;
+
+import java.util.Timer;
+
+public class GamePage extends AppCompatActivity {
+
+    MediaPlayer mp;
+    Button btn,start;
+    ImageView note1,note2,note3,note4,note5,note6,note7,note8;
+
+    //이미지뷰 배열 선언 후 값 넣어주기 ->여러 함수들에서 사용해야 하므로 전역 변수로 선언하기
+    ImageView[] img_array=new ImageView[8];
+    int[] noteID={R.id.note1,R.id.note2,R.id.note3,R.id.note4,R.id.note5,R.id.note6,R.id.note7,R.id.note8};
+
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
 
-        TabHost th = (TabHost)findViewById(R.id.th);
-        //탭호스트 실행시키기
-        th.setup();
+        btn=(Button)findViewById(R.id.exit);
+        start=(Button)findViewById(R.id.start);
+        note1=(ImageView)findViewById(R.id.note1);
+        note2=(ImageView)findViewById(R.id.note2);
+        note3=(ImageView)findViewById(R.id.note3);
+        note4=(ImageView)findViewById(R.id.note4);
+        note5=(ImageView)findViewById(R.id.note5);
+        note6=(ImageView)findViewById(R.id.note6);
+        note7=(ImageView)findViewById(R.id.note7);
+        note8=(ImageView)findViewById(R.id.note8);
 
-        //탭그룹에 탭 추가1
-        TabHost.TabSpec ts1 = th.newTabSpec("Tab1");
-        ts1.setIndicator("POP");
-        ts1.setContent(R.id.tab_view1);
-        th.addTab(ts1);
-        th.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#939FE2"));
 
-        //탭그룹에 탭 추가2
-        TabHost.TabSpec ts2 = th.newTabSpec("Tab2");
-        ts2.setIndicator("K-POP");
-        ts2.setContent(R.id.tab_view2);
-        th.addTab(ts2);
-        th.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#CE85DB"));
 
-        //탭그룹에 탭 추가3
-        TabHost.TabSpec ts3 = th.newTabSpec("Tab3");
-        ts3.setIndicator("CLASSIC");
-        ts3.setContent(R.id.tab_view3);
-        th.addTab(ts3);
-        th.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#7149BB"));
+        //각 노트에 이미지를 넣어준다
+        for(int i=0; i<img_array.length; i++){
+            //이미지뷰배열안에 여덟개의 이미지 뷰가 들어있고 각 이미지뷰에 아이디를 연동시켜준다!!(xml에서 선언한 뷰)
+            img_array[i]=(ImageView)findViewById(noteID[i]);
+            img_array[i].setImageResource(R.drawable.note);
+        }
 
-        //탭호스트 실행하기
-        th.setCurrentTab(0);
+        //인텐트로 음악제목 가져오기
+        Intent intent=getIntent();
+        int img=intent.getIntExtra("img",1);
+        final String imageName= intent.getStringExtra("imgTitle");
+        final String a="wish you were gay",b="mine",c="paris";
+        final String d="holiday", e="itzy", f="snapping";
 
-        //대량의 데이터들 (갤러리에 보여질 데이터들)
-        final int img[] = {
-               R.drawable.wishyouweregay,
-                R.drawable.mine,
-                R.drawable.paris,
-                R.drawable.wishyouweregay,
-                R.drawable.mine,
-                R.drawable.paris,
-                R.drawable.wishyouweregay,
-                R.drawable.mine,
-                R.drawable.paris
-        };
+        //final Music hi = new Music("name",true);
 
-        final String imgName[]={
-                "wish you were gay",
-                "mine",
-                "paris",
-                "wish you were gay",
-                "mine",
-                "paris",
-                "wish you were gay",
-                "mine",
-                "paris"
-        };
-
-        // 갤러리 어댑터 생성
-        GalleryAdapter adapter = new GalleryAdapter(
-                getApplicationContext(), // 다른 액티비티 객체들 간의 리소스 공유 혹은 설정에 접근을 위한 메소드
-                R.layout.musicitem, //어떤 레이아웃을 사용할 것인지
-                img); //어떤 데이터들을 사용할 것인지
-
-        // 갤러리에 어댑터 설정하기(연결하기)
-        Gallery g = (Gallery)findViewById(R.id.gallery1);
-        g.setAdapter(adapter);
-
-        //xml에 있는 이미지뷰 선언하기
-        final ImageView iv = (ImageView)findViewById(R.id.imageView1);
-
-        //갤러리의 사진을 누를때 마다
-        g.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView parent, View view,
-                                       final int position, long id) { // 선택되었을 때 콜백메서드
-                iv.setImageResource(img[position]);
-                iv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                start.setVisibility(View.GONE);
+
+
+               // 가져온 제목에 맞는 음악 재생하기
+                if(a.equals(imageName)) {
+                    mp= MediaPlayer.create(
+                            getApplicationContext(), R.raw.wishyouweregay);
+                    mp.start();
+                }
+
+                if(b.equals(imageName))
+                { mp= MediaPlayer.create(
+                        getApplicationContext(),
+                        R.raw.mine);
+                    mp.start();}
+
+                if(c.equals(imageName))
+                { mp= MediaPlayer.create(
+                        getApplicationContext(),
+                        R.raw.paris);
+                    mp.start();}
+
+                if(d.equals(imageName)) {
+                    mp= MediaPlayer.create(
+                            getApplicationContext(), R.raw.holiday);
+                    mp.start();
+                }
+
+                if(e.equals(imageName))
+                { mp= MediaPlayer.create(
+                        getApplicationContext(),
+                        R.raw.itzy);
+                    mp.start();}
+
+                if(f.equals(imageName))
+                { mp= MediaPlayer.create(
+                        getApplicationContext(),
+                        R.raw.snapping);
+                    mp.start();}
+
+                Beat[] beats = {
+                        new Beat(1000, 0),
+                        new Beat(3000, 1),
+                        new Beat(5000, 2),
+                        new Beat(7000, 3),
+                        new Beat(8000, 7),
+                        new Beat(10000, 6),
+                        new Beat(12000, 4),
+                        new Beat(14000, 5)
+                };
+               // hi.start();
+
+                for(int i = 0 ; i < beats.length ; i++){
+                    timer = new Timer();
+                    timer.schedule(new RythmTimerTask(i, img_array[beats[i].getNoteName()]), beats[i].getTime());
+                }
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.stop();
+                //hi.close();
+
+                if(timer != null){
+                    timer.purge();
+                }
+                AlertDialog.Builder exit=new AlertDialog.Builder(GamePage.this);
+                exit.setTitle(">>게임을 종료하시겠습니까?<<");
+                exit.setMessage("게임을 종료하시면 지금까지의 기록은 사라지게됩니다");
+                exit.setPositiveButton("종료하기", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        Intent gamePage2=new Intent(getApplicationContext(),GamePage2.class);
-                        gamePage2.putExtra("img",position);
-                        gamePage2.putExtra("imgTitle",imgName[position]);
-                        startActivity(gamePage2);
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent finish=new Intent(getApplicationContext(),SecondMain.class);
+                        startActivity(finish);
                     }
                 });
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                exit.show();
             }
         });
 
-        final int img2[] = {
-                R.drawable.holiday,
-                R.drawable.itzy2,
-                R.drawable.snapping2,
-                R.drawable.holiday,
-                R.drawable.itzy2,
-                R.drawable.snapping2,
-                R.drawable.holiday,
-                R.drawable.itzy2,
-                R.drawable.snapping2
-        };
-
-        final String imgName2[]={
-                "holiday",
-                "itzy",
-                "snapping",
-                "holiday",
-                "itzy",
-                "snapping",
-                "holiday",
-                "itzy",
-                "snapping",
-        };
-
-        // 두번째 탭에 대한 어댑터 생성
-        GalleryAdapter2 adapter2 = new GalleryAdapter2(
-                getApplicationContext(),
-                R.layout.musicitem2,
-                img2);
-
-        // adapterView
-        Gallery g2 = (Gallery)findViewById(R.id.gallery2);
-        g2.setAdapter(adapter2);
-
-        final ImageView iv2 = (ImageView)findViewById(R.id.imageView2);
-
-        g2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                      final int position, long id) {
-                iv2.setImageResource(img2[position]);
-                iv2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent gamePage2=new Intent(getApplicationContext(),GamePage2.class);
-                        gamePage2.putExtra("img",position);
-                        gamePage2.putExtra("imgTitle",imgName2[position]);
-                        startActivity(gamePage2);
-                    }
-                });
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
     }
-    }
+}

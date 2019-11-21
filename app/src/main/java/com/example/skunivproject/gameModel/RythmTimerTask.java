@@ -1,4 +1,4 @@
-package com.example.skunivproject;
+package com.example.skunivproject.gameModel;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;

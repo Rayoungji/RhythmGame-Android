@@ -1,4 +1,4 @@
-package com.example.skunivproject.model;
+package com.example.skunivproject.gameModel;
 
 public class Beat {
     private int time;
