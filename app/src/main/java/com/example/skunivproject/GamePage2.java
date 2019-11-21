@@ -1,5 +1,3 @@
-
-
 package com.example.skunivproject;
 
 import androidx.annotation.NonNull;
@@ -12,24 +10,26 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.util.Random;
+import com.example.skunivproject.model.Beat;
+
+import java.util.Timer;
 
 public class GamePage2 extends AppCompatActivity {
 
-    MediaPlayer mp;
+    //MediaPlayer mp;
     Button btn,start;
     ImageView note1,note2,note3,note4,note5,note6,note7,note8;
 
     //이미지뷰 배열 선언 후 값 넣어주기 ->여러 함수들에서 사용해야 하므로 전역 변수로 선언하기
     ImageView[] img_array=new ImageView[8];
     int[] noteID={R.id.note1,R.id.note2,R.id.note3,R.id.note4,R.id.note5,R.id.note6,R.id.note7,R.id.note8};
-    int time=0;
 
+    private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +62,8 @@ public class GamePage2 extends AppCompatActivity {
         final String a="wish you were gay",b="mine",c="paris";
         final String d="holiday", e="itzy", f="snapping";
 
+        final Music hi = new Music("name",true);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,74 +72,94 @@ public class GamePage2 extends AppCompatActivity {
 
 
                 //가져온 제목에 맞는 음악 재생하기
-                if(a.equals(imageName)) {
-                    mp= MediaPlayer.create(
-                            getApplicationContext(), R.raw.wishyouweregay);
-                    mp.start();
-//                    time=mp.getCurrentPosition();  //밀리초단위의 현재 위치
-                    Log.d("time",String.valueOf(time));
-                                Beat[] beats = {
-                    new Beat(1000,0),
-                    new Beat(3000,1),
-                    new Beat(5000,2),
-                    new Beat(7000,3),
-                    new Beat(8000,7),
-                    new Beat(10000,6),
-                    new Beat(12000,4),
-                    new Beat(14000,5)
-            };
-                    int time=1000;
-                    while(time<14000) {
-                        time =time+2000;
-                        for (int i = 0; i <=7; i++) {
-                            if (beats[i].getTime() <=time) {
-                                new Thread(new NoteThread(i)).start();
-                            }
-                        }
-                    }
+//                if(a.equals(imageName)) {
+//                    mp= MediaPlayer.create(
+//                            getApplicationContext(), R.raw.wishyouweregay);
+//                    mp.start();
+//                    Beat[] beats = {
+//                            new Beat(1000,0),
+//                            new Beat(3000,1),
+//                            new Beat(5000,2),
+//                            new Beat(7000,3),
+//                            new Beat(8000,7),
+//                            new Beat(10000,6),
+//                            new Beat(12000,4),
+//                            new Beat(14000,5)
+//                    };
+//                    int time=1000;
+//                    while(time<14000) {
+//                        time =time+1000;
+//                        for (int i = 0; i <=7; i++) {
+//                            if (beats[i].getTime() <=time) {
+//                                new Thread(new NoteThread(i)).start();
+//                            }
+//                        }
+//                    }
+//
+//
+//
+//
+//                }
+//
+//                if(b.equals(imageName))
+//                { mp= MediaPlayer.create(
+//                        getApplicationContext(),
+//                        R.raw.mine);
+//                    mp.start();}
+//
+//                if(c.equals(imageName))
+//                { mp= MediaPlayer.create(
+//                        getApplicationContext(),
+//                        R.raw.paris);
+//                    mp.start();}
+//
+//                if(d.equals(imageName)) {
+//                    mp= MediaPlayer.create(
+//                            getApplicationContext(), R.raw.holiday);
+//                    mp.start();
+//                }
+//
+//                if(e.equals(imageName))
+//                { mp= MediaPlayer.create(
+//                        getApplicationContext(),
+//                        R.raw.itzy);
+//                    mp.start();}
+//
+//                if(f.equals(imageName))
+//                { mp= MediaPlayer.create(
+//                        getApplicationContext(),
+//                        R.raw.snapping);
+//                    mp.start();}
 
+                // a.start();
+                Beat[] beats = {
+                        new Beat(1000, 0),
+                        new Beat(3000, 1),
+                        new Beat(5000, 2),
+                        new Beat(7000, 3),
+                        new Beat(8000, 7),
+                        new Beat(10000, 6),
+                        new Beat(12000, 4),
+                        new Beat(14000, 5)
+                };
+                hi.start();
 
-
-
+                for(int i = 0 ; i < beats.length ; i++){
+                    timer = new Timer();
+                    timer.schedule(new RythmTimerTask(i, img_array[beats[i].getNoteName()]), beats[i].getTime());
                 }
-
-                if(b.equals(imageName))
-                { mp= MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.mine);
-                    mp.start();}
-
-                if(c.equals(imageName))
-                { mp= MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.paris);
-                    mp.start();}
-
-                if(d.equals(imageName)) {
-                    mp= MediaPlayer.create(
-                            getApplicationContext(), R.raw.holiday);
-                    mp.start();
-                }
-
-                if(e.equals(imageName))
-                { mp= MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.itzy);
-                    mp.start();}
-
-                if(f.equals(imageName))
-                { mp= MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.snapping);
-                    mp.start();}
-
             }
         });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.stop();
+               // mp.stop()
+                hi.close();
+
+                if(timer != null){
+                    timer.purge();
+                }
                 AlertDialog.Builder exit=new AlertDialog.Builder(GamePage2.this);
                 exit.setTitle(">>게임을 종료하시겠습니까?<<");
                 exit.setMessage("게임을 종료하시면 지금까지의 기록은 사라지게됩니다");
@@ -160,8 +182,8 @@ public class GamePage2 extends AppCompatActivity {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-           // int time=new Random().nextInt(6000)+500;
-                img_array[msg.arg1].setY(img_array[msg.arg1].getY() + 7);
+            // int time=new Random().nextInt(6000)+500;
+            img_array[msg.arg1].setY(img_array[msg.arg1].getY() + 7);
         }
     };
 
@@ -176,43 +198,49 @@ public class GamePage2 extends AppCompatActivity {
 
         @Override
         public void run() {
-        while (true){
-            try{
-                Message msg1=new Message();
-                msg1.arg1=index;
-                NoteHandler.sendMessage(msg1);
-                Thread.sleep(100);
+            while (true){
+                try{
+                    Message msg1=new Message();
+                    msg1.arg1=index;
+                    NoteHandler.sendMessage(msg1);
+                    Thread.sleep(100);
 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        }
         }
     }
 
-    public class Beat{
-        private int time;
-        private int noteName;
+    class Music extends Thread{
+        private boolean isLoop;
+        MediaPlayer mp;
 
-        Beat(int time,int noteName){
-            this.time=time;
-            this.noteName=noteName;
+        public Music(String name, boolean isLoop){
+
+            this.isLoop=isLoop;
         }
+
         public int getTime(){
-            return time;
+            if(mp==null){return 0;}
+            else{return mp.getCurrentPosition();}
         }
-        public void setTime(int time){
-            this.time=time;
+
+        public void close(){
+            isLoop=false;
+            mp.stop();
+            this.interrupt();
         }
-        public int getNoteName(){
-            return noteName;
-        }
-        public void setNoteName(int noteName){
-            this.noteName=noteName;
+
+        @Override
+        public void run() {
+            super.run();
+            try {
+                mp= MediaPlayer.create(
+                        getApplicationContext(), R.raw.wishyouweregay);
+                mp.start();
+
+            }catch (Exception e){}
         }
     }
 }
-
-
-
-

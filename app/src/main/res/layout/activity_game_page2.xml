@@ -36,7 +36,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="70dp"
             android:layout_height="610dp"
-            android:src="@drawable/noteroutchange"/>
+            android:src="@drawable/noterout"/>
 
             <ImageView
                 android:id="@+id/note1"
@@ -56,7 +56,7 @@
                 android:layout_marginLeft="130dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
-                android:src="@drawable/noteroutchange"/>
+                android:src="@drawable/noterout"/>
 
             <ImageView
                 android:id="@+id/note2"
@@ -77,7 +77,7 @@
                 android:layout_marginLeft="230dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
-                android:src="@drawable/noteroutchange"/>
+                android:src="@drawable/noterout"/>
 
             <ImageView
                 android:id="@+id/note3"
@@ -98,7 +98,7 @@
                 android:layout_marginLeft="320dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
-                android:src="@drawable/noteroutchange"/>
+                android:src="@drawable/noterout"/>
 
             <ImageView
                 android:id="@+id/note4"
