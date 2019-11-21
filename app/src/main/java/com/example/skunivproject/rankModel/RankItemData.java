@@ -1,4 +1,4 @@
-package com.example.skunivproject;
+package com.example.skunivproject.rankModel;
 
 public class RankItemData {
     private int RankNum,Score;

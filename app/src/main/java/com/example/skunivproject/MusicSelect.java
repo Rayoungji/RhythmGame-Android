@@ -13,6 +13,9 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
+import com.example.skunivproject.musicModel.GalleryAdapter;
+import com.example.skunivproject.musicModel.GalleryAdapter2;
+
 public class MusicSelect extends FragmentActivity {
 
     @Override

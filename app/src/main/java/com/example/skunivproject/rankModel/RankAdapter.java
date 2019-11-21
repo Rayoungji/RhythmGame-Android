@@ -1,4 +1,4 @@
-package com.example.skunivproject;
+package com.example.skunivproject.rankModel;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.skunivproject.R;
 
 import java.util.ArrayList;
 

@@ -1,16 +1,12 @@
 package com.example.skunivproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.skunivproject.rankModel.RankAdapter;
+import com.example.skunivproject.rankModel.RankItemData;
 
 import java.util.ArrayList;
 

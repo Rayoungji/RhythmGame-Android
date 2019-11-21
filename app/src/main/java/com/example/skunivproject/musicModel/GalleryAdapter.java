@@ -1,4 +1,4 @@
-package com.example.skunivproject;
+package com.example.skunivproject.musicModel;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+
+import com.example.skunivproject.R;
 
 //데이터를 get,set하는 메소드들과 아이템뷰를 사용하여 갤러리에 보여지게 하는부분을 구현한다-> 데이터에 접근하고 데이터를 보여준다
 public class GalleryAdapter extends BaseAdapter {
