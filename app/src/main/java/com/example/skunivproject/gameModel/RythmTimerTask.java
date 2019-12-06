@@ -10,13 +10,13 @@ import androidx.annotation.NonNull;
 import java.util.TimerTask;
 
 public class RythmTimerTask extends TimerTask {
-    int index; //노트 이름
+    int index;
     ImageView img;
     public RythmTimerTask(int index, ImageView img){
         this.index=index;
         this.img = img;
     }
-    //그림을 갈색으로 바꿔라!!
+
     @SuppressLint("HandlerLeak")
     Handler NoteHandler=new Handler(){
         @Override

@@ -22,7 +22,7 @@ public class GamePage extends AppCompatActivity {
     Button btn,start;
     ImageView note1,note2,note3,note4,note5,note6,note7,note8;
 
-    //이미지뷰 배열 선언 후 값 넣어주기 ->여러 함수들에서 사용해야 하므로 전역 변수로 선언하기
+    //이미지뷰 배열, 이미지 아이디 배열 선언
     ImageView[] img_array=new ImageView[8];
     int[] noteID={R.id.note1,R.id.note2,R.id.note3,R.id.note4,R.id.note5,R.id.note6,R.id.note7,R.id.note8};
 
@@ -35,6 +35,8 @@ public class GamePage extends AppCompatActivity {
 
         btn=(Button)findViewById(R.id.exit);
         start=(Button)findViewById(R.id.start);
+
+        //노트들 선언하기
         note1=(ImageView)findViewById(R.id.note1);
         note2=(ImageView)findViewById(R.id.note2);
         note3=(ImageView)findViewById(R.id.note3);
@@ -46,9 +48,9 @@ public class GamePage extends AppCompatActivity {
 
 
 
-        //각 노트에 이미지를 넣어준다
+        //각 노트와 이미지뷰 연걸하고 배열에 저장
         for(int i=0; i<img_array.length; i++){
-            //이미지뷰배열안에 여덟개의 이미지 뷰가 들어있고 각 이미지뷰에 아이디를 연동시켜준다!!(xml에서 선언한 뷰)
+            //아이디 배열에 있는 이미지뷰 아이디 이미지뷰 배열에 넣고 노트 이미지 세팅
             img_array[i]=(ImageView)findViewById(noteID[i]);
             img_array[i].setImageResource(R.drawable.note);
         }
@@ -60,7 +62,6 @@ public class GamePage extends AppCompatActivity {
         final String a="wish you were gay",b="mine",c="paris";
         final String d="holiday", e="itzy", f="snapping";
 
-        //final Music hi = new Music("name",true);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +107,7 @@ public class GamePage extends AppCompatActivity {
                         R.raw.snapping);
                     mp.start();}
 
+                //게임에서 재생될 비트 찍는 부분
                 Beat[] beats = {
                         new Beat(1000, 0),
                         new Beat(3000, 1),
@@ -116,8 +118,8 @@ public class GamePage extends AppCompatActivity {
                         new Beat(12000, 4),
                         new Beat(14000, 5)
                 };
-               // hi.start();
 
+                //스레드 실행부분 타이머 클래스의 schedule 메소드를 이용하여 각 비트의 스레드를 실행 시킨다
                 for(int i = 0 ; i < beats.length ; i++){
                     timer = new Timer();
                     timer.schedule(new RythmTimerTask(i, img_array[beats[i].getNoteName()]), beats[i].getTime());
@@ -129,7 +131,6 @@ public class GamePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mp.stop();
-                //hi.close();
 
                 if(timer != null){
                     timer.purge();
