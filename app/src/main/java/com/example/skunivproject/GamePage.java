@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.skunivproject.gameModel.Beat;
 import com.example.skunivproject.gameModel.Judge;
@@ -21,14 +22,15 @@ import java.util.Timer;
 public class GamePage extends AppCompatActivity {
 
     MediaPlayer mp;
-    Button btn,start;
-    ImageView note1,note2,note3,note4,note5,note6,note7,note8;
+    Button btn,start,finish;
+    ImageView note1,note2,note3,note4,note5,note6,note7,note8,note9,note10,note11,note12,note13,note14,note15,note16,note17,note18,note19,note20;
     ImageView touch1,touch2,touch3,touch4,judgeLine,judgeLine2;
-    TextView text,scoretext;
+    TextView text;
 
     //이미지뷰 배열, 이미지 아이디 배열 선언
-    ImageView[] img_array=new ImageView[8];
-    int[] noteID={R.id.note1,R.id.note2,R.id.note3,R.id.note4,R.id.note5,R.id.note6,R.id.note7,R.id.note8};
+    ImageView[] img_array=new ImageView[20];
+    int[] noteID={R.id.note1,R.id.note2,R.id.note3,R.id.note4,R.id.note5,R.id.note6,R.id.note7,R.id.note8,R.id.note9,R.id.note10,
+            R.id.note11,R.id.note12,R.id.note13,R.id.note14,R.id.note15,R.id.note16,R.id.note17,R.id.note18,R.id.note19,R.id.note20};
 
     private Timer timer;
 
@@ -43,6 +45,7 @@ public class GamePage extends AppCompatActivity {
 
         btn=(Button)findViewById(R.id.exit);
         start=(Button)findViewById(R.id.start);
+        finish=(Button)findViewById(R.id.finish);
 
         //노트들 선언하기
         note1=(ImageView)findViewById(R.id.note1);
@@ -53,6 +56,18 @@ public class GamePage extends AppCompatActivity {
         note6=(ImageView)findViewById(R.id.note6);
         note7=(ImageView)findViewById(R.id.note7);
         note8=(ImageView)findViewById(R.id.note8);
+        note9=(ImageView)findViewById(R.id.note9);
+        note10 =(ImageView)findViewById(R.id.note10);
+        note11=(ImageView)findViewById(R.id.note11);
+        note12=(ImageView)findViewById(R.id.note12);
+        note13=(ImageView)findViewById(R.id.note13);
+        note14=(ImageView)findViewById(R.id.note14);
+        note15=(ImageView)findViewById(R.id.note15);
+        note16=(ImageView)findViewById(R.id.note16);
+        note17=(ImageView)findViewById(R.id.note17);
+        note18=(ImageView)findViewById(R.id.note18);
+        note19=(ImageView)findViewById(R.id.note19);
+        note20=(ImageView)findViewById(R.id.note20);
         touch1=(ImageView)findViewById(R.id.touch1);
         touch2=(ImageView)findViewById(R.id.touch2);
         touch3=(ImageView)findViewById(R.id.touch3);
@@ -148,37 +163,155 @@ public class GamePage extends AppCompatActivity {
 
                 //게임에서 재생될 비트 찍는 부분
                 final Beat[] beats = {
-                        new Beat(1000, 0),
-                        new Beat(3000, 1),
-                        new Beat(5000, 2),
-                        new Beat(7000, 3),
-                        new Beat(8000, 7),
-                        new Beat(10000, 6),
-                        new Beat(12000, 4),
-                        new Beat(14000, 5)
+                        new Beat(0000, 0),
+                        new Beat(1200, 1),
+                        new Beat(2200, 2),
+                        new Beat(3200, 3),
+                        new Beat(4500, 7),
+                        new Beat(5800, 6),
+                        new Beat(6800, 5),
+                        new Beat(7800, 4),
+                        new Beat(9000, 8),
+                        new Beat(10000,9),
+                        new Beat(18000, 10),
+                        new Beat(19000, 11),
+                        new Beat(20000, 12),
+                        new Beat(21000, 15),
+                        new Beat(25000, 13),
+                        new Beat(23000, 14),
+                        new Beat(23000, 18),
+                        new Beat(27000, 17),
+                        new Beat(30000, 16),
+                        new Beat(31000, 19),
+
                 };
 
                 //스레드 실행부분 타이머 클래스의 schedule 메소드를 이용하여 각 비트의 스레드를 실행 시킨다
                   for (int i = 0; i < beats.length; i++) {
+
                     timer = new Timer();
                     timer.schedule(new RythmTimerTask(i, img_array[beats[i].getNoteName()]), beats[i].getTime());
 
-                    img_array[beats[i].getNoteName()].setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            int sc = new Judge().score(img_array[beats[j].getNoteName()]);
-                            if (sc == 1) {
-                                text.setText("good" + sc);
-                            } else {
-                                text.setText("bad:" + sc);
+                      final int finalI = i;
+
+                      img_array[beats[i].getNoteName()].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                int sc = new Judge().score(img_array[beats[finalI].getNoteName()]);
+                                if (sc == 1) {
+                                    counter++;
+                                    text.setText("score:" + counter);
+                                } else {
+
+                                }
+
                             }
 
-                            j++;
-                        }
-                    });
-                }
-            }
+                        });
 
+//                      if (sc%4==0) {
+//                          touch1.setOnClickListener(new View.OnClickListener() {
+//                              @Override
+//                              public void onClick(View v) {
+//
+//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
+//                                  if (sc2 == 0) {
+//                                      text.setText("Miss!!");
+//                                  }
+//                                  if (sc2 == 1) {
+//                                      counter++;
+//                                      text.setText("score:" + counter);
+//                                  }
+//                              }
+//
+//
+//                          });
+//                      }
+//
+//                      else if (sc%4==1) {
+//                          touch2.setOnClickListener(new View.OnClickListener() {
+//                              @Override
+//                              public void onClick(View v) {
+//
+//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
+//                                  if (sc2 == 0) {
+//                                      text.setText("Miss!!");
+//                                  }
+//                                  if (sc2 == 1) {
+//                                      counter++;
+//                                      text.setText("score:" + counter);
+//                                  }
+//                              }
+//
+//                          });
+//
+//                      }
+//
+//                     else if (sc%4==2) {
+//                          touch3.setOnClickListener(new View.OnClickListener() {
+//                              @Override
+//                              public void onClick(View v) {
+//
+//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
+//                                  if (sc2 == 0) {
+//                                      text.setText("Miss!!");
+//                                  }
+//                                  if (sc2 == 1) {
+//                                      counter++;
+//                                      text.setText("score:" + counter);
+//                                  }
+//                              }
+//
+//                          });
+//
+//                      }
+//
+//                     else if (sc%4==3) {
+//                          touch4.setOnClickListener(new View.OnClickListener() {
+//                              @Override
+//                              public void onClick(View v) {
+//
+//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
+//                                  if (sc2 == 0) {
+//                                      text.setText("Miss!!");
+//                                  }
+//                                  if (sc2 == 1) {
+//                                      counter++;
+//                                      text.setText("score:" + counter);
+//                                  }
+//                              }
+//
+//
+//                          });
+//
+//                      }
+
+                    }
+                }
+
+        });
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.stop();
+
+                if(timer != null){
+                    timer.purge();
+                }
+                AlertDialog.Builder exit=new AlertDialog.Builder(GamePage.this);
+                exit.setTitle(">>게임을 끝내시겠습니까?<<");
+                exit.setMessage("게임을 끝내시면 현제 스코어가 랭킹됩니다");
+                exit.setPositiveButton("끝내기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent done=new Intent(getApplicationContext(),GameDone.class);
+                        done.putExtra("score",counter);
+                        startActivity(done);
+                    }
+                });
+                exit.show();
+            }
         });
 
         btn.setOnClickListener(new View.OnClickListener() {
