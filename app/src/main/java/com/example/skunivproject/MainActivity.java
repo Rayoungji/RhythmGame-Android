@@ -42,9 +42,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder howto= new AlertDialog.Builder(MainActivity.this);
                 howto.setTitle(">>게임 소개<<");
-                howto.setMessage("  이 게임은 네개의 사각형으로 이루어진 블록들이 무작위로 나타나 바닥과 블록위에 떨어지며" +
-                        "이러한 블록을 방향키를 이용하여 회전시켜 수평선의 빈틈을 채우는 게임입니다. \n  수평선이 만들어지게 되면 그 선은 " +
-                        "없어지며, 사용자가 블록을 꼭대기까지 가득메워 블록이 더 들어갈 수 없게되면 게임이 끝나게 됩니다.");
+                howto.setMessage(
+                        "이 게임은 플레이어가 리듬에나 음악에 맞춰서 동작을 취하는 게임이다." +
+                                "네갈래의 길이 있고 여러 노트들이 리듬에 맞춰 무작위로 떨어지며" +
+                                "플레이어는 노트가 판정선 사이에 위치하였을 때 노트를 클릭하여 점수를 얻게된다."
+                );
                  //howto.setIcon();
                 howto.setPositiveButton("돌아가기",null);
                 howto.show();

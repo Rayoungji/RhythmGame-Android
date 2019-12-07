@@ -15,6 +15,7 @@ import android.widget.TabHost;
 
 import com.example.skunivproject.musicModel.GalleryAdapter;
 import com.example.skunivproject.musicModel.GalleryAdapter2;
+import com.example.skunivproject.musicModel.GalleryAdapter3;
 
 public class MusicSelect extends FragmentActivity {
 
@@ -29,10 +30,10 @@ public class MusicSelect extends FragmentActivity {
 
         //탭그룹에 탭 추가1
         TabHost.TabSpec ts1 = th.newTabSpec("Tab1");
-        ts1.setIndicator("POP");
-        ts1.setContent(R.id.tab_view1);
-        th.addTab(ts1);
-        th.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#939FE2"));
+        ts1.setIndicator("POP"); //탭에 씌여질 부분
+        ts1.setContent(R.id.tab_view1); //탭이 선택됬을 때 보여질 view
+        th.addTab(ts1); //탭위젯에 탭 추가
+        th.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#939FE2")); //탭색상 지정
 
         //탭그룹에 탭 추가2
         TabHost.TabSpec ts2 = th.newTabSpec("Tab2");
@@ -43,7 +44,7 @@ public class MusicSelect extends FragmentActivity {
 
         //탭그룹에 탭 추가3
         TabHost.TabSpec ts3 = th.newTabSpec("Tab3");
-        ts3.setIndicator("CLASSIC");
+        ts3.setIndicator("Disney");
         ts3.setContent(R.id.tab_view3);
         th.addTab(ts3);
         th.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#7149BB"));
@@ -147,6 +148,7 @@ public class MusicSelect extends FragmentActivity {
 
         final ImageView iv2 = (ImageView)findViewById(R.id.imageView2);
 
+        //아이템이 선택되었을 때 실행
         g2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -167,5 +169,64 @@ public class MusicSelect extends FragmentActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        final int img3[] = {
+                R.drawable.frozen,
+                R.drawable.frozen2,
+                R.drawable.speechless,
+                R.drawable.frozen,
+                R.drawable.frozen2,
+                R.drawable.speechless,
+                R.drawable.frozen,
+                R.drawable.frozen2,
+                R.drawable.speechless,
+        };
+
+        final String imgName3[]={
+                "frozen",
+                "frozen2",
+                "speechless",
+                "frozen",
+                "frozen2",
+                "speechless",
+                "frozen",
+                "frozen2",
+                "speechless",
+        };
+
+        // 세번째 탭에 대한 어댑터 생성
+        GalleryAdapter3 adapter3 = new GalleryAdapter3(
+                getApplicationContext(),
+                R.layout.musicitem3,
+                img3);
+
+        // adapterView
+        Gallery g3 = (Gallery)findViewById(R.id.gallery3);
+        g3.setAdapter(adapter3);
+
+        final ImageView iv3 = (ImageView)findViewById(R.id.imageView3);
+
+        //아이템이 선택되었을 때 실행
+        g3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       final int position, long id) {
+                iv3.setImageResource(img3[position]);
+                iv3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent gamePage2=new Intent(getApplicationContext(), GamePage.class);
+                        gamePage2.putExtra("img",position);
+                        gamePage2.putExtra("imgTitle",imgName3[position]);
+                        startActivity(gamePage2);
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
     }
     }

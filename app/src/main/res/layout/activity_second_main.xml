@@ -142,16 +142,5 @@
         android:text="로그아웃"
         android:textColor="#FFFFFF"
         android:textSize="25dp" />
-    <Button
-        android:id="@+id/practice"
-        android:layout_width="131dp"
-        android:layout_height="61dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="#7545CA"
-        android:fontFamily="@font/sangmoon"
-        android:text="연습용"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp" />
 
 </LinearLayout>

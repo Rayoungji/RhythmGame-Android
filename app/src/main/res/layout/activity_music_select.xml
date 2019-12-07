@@ -88,12 +88,19 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+                <Gallery
+                    android:id="@+id/gallery3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="세번째 창"
-                    android:textColor="#FF0000"
-                    android:textSize="30sp" />
+                    android:layout_height="wrap_content"
+                    android:spacing="20dp"
+                    android:unselectedAlpha="0.2" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/abc_btn_radio_to_on_mtrl_000" />
+
             </LinearLayout>
         </FrameLayout>
     </TabHost>

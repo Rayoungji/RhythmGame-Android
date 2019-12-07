@@ -74,9 +74,8 @@ public class GamePage extends AppCompatActivity {
         int img=intent.getIntExtra("img",1);
         final String imageName= intent.getStringExtra("imgTitle");
         final String a="wish you were gay",b="mine",c="paris";
-        final String d="holiday";
-        final String e="itzy";
-        final String[] f = { "snapping" };
+        final String d="holiday", e="itzy",f = "snapping";
+        final  String g="frozen", h="frozen2", yy="speechless";
 
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +119,30 @@ public class GamePage extends AppCompatActivity {
                     mp.start();
                 }
 
-                if (f[0].equals(imageName)) {
+                if (f.equals(imageName)) {
                     mp = MediaPlayer.create(
                             getApplicationContext(),
                             R.raw.snapping);
+                    mp.start();
+                }
+
+                if (g.equals(imageName)) {
+                    mp = MediaPlayer.create(
+                            getApplicationContext(), R.raw.frozen);
+                    mp.start();
+                }
+
+                if (h.equals(imageName)) {
+                    mp = MediaPlayer.create(
+                            getApplicationContext(),
+                            R.raw.fronze2);
+                    mp.start();
+                }
+
+                if (yy.equals(imageName)) {
+                    mp = MediaPlayer.create(
+                            getApplicationContext(),
+                            R.raw.speechless);
                     mp.start();
                 }
 
