@@ -4,17 +4,23 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+
+import org.w3c.dom.Text;
 
 import java.util.TimerTask;
 
 public class RythmTimerTask extends TimerTask {
     int index;
     ImageView img;
+
     public RythmTimerTask(int index, ImageView img){
         this.index=index;
         this.img = img;
+
     }
 
     @SuppressLint("HandlerLeak")
@@ -23,6 +29,7 @@ public class RythmTimerTask extends TimerTask {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             img.setY(img.getY() + 7);
+
         }
     };
     @Override

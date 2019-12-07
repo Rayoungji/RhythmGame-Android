@@ -32,7 +32,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/image1"
+                android:id="@+id/touch1"
             android:layout_marginLeft="30dp"
             android:layout_width="70dp"
             android:layout_height="610dp"
@@ -52,7 +52,7 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/image2"
+                android:id="@+id/touch2"
                 android:layout_marginLeft="130dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
@@ -73,11 +73,12 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/image3"
-                android:layout_marginLeft="230dp"
+                android:id="@+id/touch3"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
-                android:src="@drawable/noterout"/>
+                android:layout_marginLeft="230dp"
+                android:background="#00000000"
+                android:src="@drawable/noterout" />
 
             <ImageView
                 android:id="@+id/note3"
@@ -94,7 +95,7 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/image4"
+                android:id="@+id/touch4"
                 android:layout_marginLeft="320dp"
                 android:layout_width="70dp"
                 android:layout_height="610dp"
@@ -113,6 +114,34 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="330dp"
                 android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/judgeLine2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="355dp"
+                android:src="@drawable/judgeline" />
+            <ImageView
+                android:id="@+id/JugeLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="325dp"
+                android:src="@drawable/judgeline" />
+
+            <TextView
+            android:id="@+id/text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:textSize="30dp" />
+
+            <TextView
+            android:id="@+id/scoretext"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+                android:layout_marginLeft="100dp"
+            android:textSize="30dp" />
 
         </RelativeLayout>
 

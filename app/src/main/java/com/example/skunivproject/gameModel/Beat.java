@@ -14,15 +14,15 @@ public class Beat {
         return time;
     }
 
-    public void setTime(int time){
-        this.time=time;
-    }
+//    public void setTime(int time){
+//        this.time=time;
+//    }
 
     public int getNoteName(){
         return noteName;
     }
 
-    public void setNoteName(int noteName){
-        this.noteName=noteName;
-    }
+//    public void setNoteName(int noteName){
+//        this.noteName=noteName;
+//    }
 }
