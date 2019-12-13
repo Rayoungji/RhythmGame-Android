@@ -3,10 +3,13 @@ package com.example.skunivproject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +29,9 @@ public class GamePage extends AppCompatActivity {
     ImageView note1,note2,note3,note4,note5,note6,note7,note8,note9,note10,note11,note12,note13,note14,note15,note16,note17,note18,note19,note20;
     ImageView touch1,touch2,touch3,touch4,judgeLine,judgeLine2;
     TextView text;
+    private SharedPreferences userInfo;
+    private SharedPreferences.Editor loginEditor;
+    private String loginId;
 
     //이미지뷰 배열, 이미지 아이디 배열 선언
     ImageView[] img_array=new ImageView[20];
@@ -46,6 +52,9 @@ public class GamePage extends AppCompatActivity {
         btn=(Button)findViewById(R.id.exit);
         start=(Button)findViewById(R.id.start);
         finish=(Button)findViewById(R.id.finish);
+
+        userInfo=getSharedPreferences("UserInforamtion", Activity.MODE_PRIVATE);
+        loginEditor=userInfo.edit();
 
         //노트들 선언하기
         note1=(ImageView)findViewById(R.id.note1);
@@ -92,6 +101,8 @@ public class GamePage extends AppCompatActivity {
         final String d="holiday", e="itzy",f = "snapping";
         final  String g="frozen", h="frozen2", yy="speechless";
 
+        loginId=userInfo.getString("loginid","");
+        Log.d("login id: ", loginId);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

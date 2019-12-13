@@ -1,5 +1,7 @@
 package com.example.skunivproject.Retrofit;
 
+import com.example.skunivproject.Domain.Dto.LoginDto;
+import com.example.skunivproject.Domain.Dto.LoginResponseDto;
 import com.example.skunivproject.Domain.Dto.SignupDto;
 
 import retrofit2.Call;
@@ -11,5 +13,8 @@ public interface RetrofitInterface {
 
     @POST("/User/SignUp")
     Call<Void> signup(@Body SignupDto signupDto);
+
+    @POST("/User/Login")
+    Call<LoginResponseDto> login(@Body LoginDto loginDto);
 
 }

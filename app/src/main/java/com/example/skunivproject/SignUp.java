@@ -1,7 +1,9 @@
 package com.example.skunivproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,23 +36,25 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Name.getText().toString();
-                ID.getText().toString();
-                PW.getText().toString();
-
-                //서버로 받은 이름&아이디&비밀번호 넘겨주기
                 //아이디 중복인 경우 & 아이디가 있는 경우 & 셋중 하나라도 널값인 경우 ->각각 오류메세지 넘겨주기
-                //넘겨서 서버의 디비에 저장
 
-                //DTO에 담아라!!!!!!!
                 signupDto=new SignupDto(Name.getText().toString(),ID.getText().toString(),PW.getText().toString());
+                userController.signup(signupDto);
 
-                 userController.singup(signupDto);
+                    AlertDialog.Builder Login=new AlertDialog.Builder(SignUp.this);
 
-                Intent Login=new Intent(getApplicationContext(),Login.class);
-                startActivity(Login);
+                    Login.setMessage("회원가입이 성공적으로 이루어졌습니다. 로그인을 위해 버튼을 클릭해주세요");
+                    Login.setPositiveButton("로그인하기",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
-            }
+                                    Intent Login=new Intent(getApplicationContext(),Login.class);
+                                    startActivity(Login);
+                                }
+                            });
+                    Login.show();
+                }
         });
     }
 }
