@@ -3,9 +3,9 @@ package com.example.skunivproject.Controller;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.skunivproject.Domain.Dto.LoginDto;
-import com.example.skunivproject.Domain.Dto.LoginResponseDto;
-import com.example.skunivproject.Domain.Dto.SignupDto;
+import com.example.skunivproject.Domain.Dto.Dto.User.LoginDto;
+import com.example.skunivproject.Domain.Dto.Dto.User.LoginResponseDto;
+import com.example.skunivproject.Domain.Dto.Dto.User.SignupDto;
 import com.example.skunivproject.Retrofit.BuildRetrofit;
 
 import retrofit2.Call;

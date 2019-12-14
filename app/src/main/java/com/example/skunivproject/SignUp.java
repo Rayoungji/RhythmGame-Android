@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.skunivproject.Controller.UserController;
-import com.example.skunivproject.Domain.Dto.SignupDto;
+import com.example.skunivproject.Domain.Dto.Dto.User.SignupDto;
 
 public class SignUp extends AppCompatActivity {
 

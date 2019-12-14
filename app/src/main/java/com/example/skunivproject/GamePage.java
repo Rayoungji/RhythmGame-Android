@@ -14,8 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.skunivproject.Controller.RankingController;
+import com.example.skunivproject.Domain.Dto.Dto.Dto.Ranking.RankDto;
 import com.example.skunivproject.gameModel.Beat;
 import com.example.skunivproject.gameModel.Judge;
 import com.example.skunivproject.gameModel.RythmTimerTask;
@@ -32,6 +33,8 @@ public class GamePage extends AppCompatActivity {
     private SharedPreferences userInfo;
     private SharedPreferences.Editor loginEditor;
     private String loginId;
+    private RankDto rankDto;
+    private RankingController rankingController;
 
     //이미지뷰 배열, 이미지 아이디 배열 선언
     ImageView[] img_array=new ImageView[20];
@@ -42,6 +45,7 @@ public class GamePage extends AppCompatActivity {
 
     int counter=0;
     int j=0;
+    String song;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -55,6 +59,7 @@ public class GamePage extends AppCompatActivity {
 
         userInfo=getSharedPreferences("UserInforamtion", Activity.MODE_PRIVATE);
         loginEditor=userInfo.edit();
+        rankingController=new RankingController(getApplicationContext());
 
         //노트들 선언하기
         note1=(ImageView)findViewById(R.id.note1);
@@ -100,7 +105,9 @@ public class GamePage extends AppCompatActivity {
         final String a="wish you were gay",b="mine",c="paris";
         final String d="holiday", e="itzy",f = "snapping";
         final  String g="frozen", h="frozen2", yy="speechless";
+        song=imageName;
 
+        //userid 잘 가지고 있는지 확인!!
         loginId=userInfo.getString("loginid","");
         Log.d("login id: ", loginId);
 
@@ -198,107 +205,26 @@ public class GamePage extends AppCompatActivity {
                 };
 
                 //스레드 실행부분 타이머 클래스의 schedule 메소드를 이용하여 각 비트의 스레드를 실행 시킨다
-                  for (int i = 0; i < beats.length; i++) {
+                for (int i = 0; i < beats.length; i++) {
 
                     timer = new Timer();
                     timer.schedule(new RythmTimerTask(i, img_array[beats[i].getNoteName()]), beats[i].getTime());
 
-                      final int finalI = i;
+                    final int finalI = i;
 
-                      img_array[beats[i].getNoteName()].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                int sc = new Judge().score(img_array[beats[finalI].getNoteName()]);
-                                if (sc == 1) {
-                                    counter++;
-                                    text.setText("score:" + counter);
-                                } else {
-
-                                }
-
+                    img_array[beats[i].getNoteName()].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int sc = new Judge().score(img_array[beats[finalI].getNoteName()]);
+                            if (sc == 1) {
+                                counter++;
+                                text.setText("score:" + counter);
                             }
+                        }
 
-                        });
-
-//                      if (sc%4==0) {
-//                          touch1.setOnClickListener(new View.OnClickListener() {
-//                              @Override
-//                              public void onClick(View v) {
-//
-//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                                  if (sc2 == 0) {
-//                                      text.setText("Miss!!");
-//                                  }
-//                                  if (sc2 == 1) {
-//                                      counter++;
-//                                      text.setText("score:" + counter);
-//                                  }
-//                              }
-//
-//
-//                          });
-//                      }
-//
-//                      else if (sc%4==1) {
-//                          touch2.setOnClickListener(new View.OnClickListener() {
-//                              @Override
-//                              public void onClick(View v) {
-//
-//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                                  if (sc2 == 0) {
-//                                      text.setText("Miss!!");
-//                                  }
-//                                  if (sc2 == 1) {
-//                                      counter++;
-//                                      text.setText("score:" + counter);
-//                                  }
-//                              }
-//
-//                          });
-//
-//                      }
-//
-//                     else if (sc%4==2) {
-//                          touch3.setOnClickListener(new View.OnClickListener() {
-//                              @Override
-//                              public void onClick(View v) {
-//
-//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                                  if (sc2 == 0) {
-//                                      text.setText("Miss!!");
-//                                  }
-//                                  if (sc2 == 1) {
-//                                      counter++;
-//                                      text.setText("score:" + counter);
-//                                  }
-//                              }
-//
-//                          });
-//
-//                      }
-//
-//                     else if (sc%4==3) {
-//                          touch4.setOnClickListener(new View.OnClickListener() {
-//                              @Override
-//                              public void onClick(View v) {
-//
-//                                  int sc2 = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                                  if (sc2 == 0) {
-//                                      text.setText("Miss!!");
-//                                  }
-//                                  if (sc2 == 1) {
-//                                      counter++;
-//                                      text.setText("score:" + counter);
-//                                  }
-//                              }
-//
-//
-//                          });
-//
-//                      }
-
-                    }
+                    });
                 }
+            }
 
         });
 
@@ -310,6 +236,11 @@ public class GamePage extends AppCompatActivity {
                 if(timer != null){
                     timer.purge();
                 }
+                rankDto=new RankDto(song,counter,loginId);
+                rankingController.recordScore(rankDto);
+                Log.d("로그인 id :",loginId);
+                Log.d("노래제목: ", song);
+                Log.d("점수 : ", ""+counter);
                 AlertDialog.Builder exit=new AlertDialog.Builder(GamePage.this);
                 exit.setTitle(">>게임을 끝내시겠습니까?<<");
                 exit.setMessage("게임을 끝내시면 현제 스코어가 랭킹됩니다");
@@ -319,6 +250,7 @@ public class GamePage extends AppCompatActivity {
                         Intent done=new Intent(getApplicationContext(),GameDone.class);
                         done.putExtra("score",counter);
                         startActivity(done);
+
                     }
                 });
                 exit.show();

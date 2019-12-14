@@ -1,4 +1,4 @@
-package com.example.skunivproject.Domain.Dto;
+package com.example.skunivproject.Domain.Dto.Dto.User;
 
 public class LoginDto {
 
