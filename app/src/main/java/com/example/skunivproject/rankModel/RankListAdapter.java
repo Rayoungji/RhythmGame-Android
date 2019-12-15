@@ -26,18 +26,18 @@ public class RankListAdapter extends BaseAdapter {
     //BaseAdapter 필수함수
     @Override
     public Object getItem(int position) {
-        return null;
+        return rankItemDataArrayList.get(position);
     }
 
     //BaseAdapter 필수함수
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final int pos=position;
+            final int pos=position;
         final Context context=parent.getContext();
 
         if(convertView==null){
@@ -47,11 +47,14 @@ public class RankListAdapter extends BaseAdapter {
 
         final TextView PlayerId=(TextView)convertView.findViewById(R.id.PlayerId);
         final TextView Score=(TextView)convertView.findViewById(R.id.Score);
+        final TextView RankNum=(TextView)convertView.findViewById(R.id.RankNum);
 
         final RankItemData rankItemData=rankItemDataArrayList.get(position);
 
+        RankNum.setText(""+(position+1)+"등");
         PlayerId.setText(rankItemData.getPlayerId());
         Score.setText(Integer.toString(rankItemData.getScore()));
+
 
         return convertView;
     }
