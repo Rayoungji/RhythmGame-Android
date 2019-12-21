@@ -36,14 +36,21 @@
                 android:layout_marginLeft="35dp"
                 android:src="@drawable/note"/>
             <ImageView
-                android:id="@+id/note5"
+                android:id="@+id/note4"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="35dp"
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note9"
+                android:id="@+id/note7"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="35dp"
+                android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/note10"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="35dp"
@@ -57,7 +64,14 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note17"
+                android:id="@+id/note16"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="35dp"
+                android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/note19"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="35dp"
@@ -78,14 +92,21 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note6"
+                android:id="@+id/note5"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="140dp"
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note10"
+                android:id="@+id/note8"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="140dp"
+                android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/note11"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="140dp"
@@ -99,10 +120,17 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note18"
+                android:id="@+id/note17"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="35dp"
+                android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/note20"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="35dp"
                 android:src="@drawable/note"/>
 
             <ImageView
@@ -121,14 +149,21 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note7"
+                android:id="@+id/note6"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="240dp"
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note11"
+                android:id="@+id/note9"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="240dp"
+                android:src="@drawable/note"/>
+
+            <ImageView
+                android:id="@+id/note12"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="240dp"
@@ -142,53 +177,27 @@
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/note19"
+                android:id="@+id/note18"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="35dp"
                 android:src="@drawable/note"/>
 
             <ImageView
-                android:id="@+id/touch4"
-                android:layout_marginLeft="320dp"
-                android:layout_width="70dp"
-                android:layout_height="610dp"
-                android:src="@drawable/noterout"/>
-
-            <ImageView
-                android:id="@+id/note4"
+                android:id="@+id/note21"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="330dp"
+                android:layout_marginLeft="35dp"
                 android:src="@drawable/note"/>
 
-            <ImageView
-                android:id="@+id/note8"
-                android:layout_width="55dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="330dp"
-                android:src="@drawable/note"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/touch4"-->
+<!--                android:layout_marginLeft="320dp"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="610dp"-->
+<!--                android:src="@drawable/noterout"/>-->
 
-            <ImageView
-                android:id="@+id/note12"
-                android:layout_width="55dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="330dp"
-                android:src="@drawable/note"/>
 
-            <ImageView
-                android:id="@+id/note16"
-                android:layout_width="55dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="330dp"
-                android:src="@drawable/note"/>
-
-            <ImageView
-                android:id="@+id/note20"
-                android:layout_width="55dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="330dp"
-                android:src="@drawable/note"/>
 
             <ImageView
                 android:id="@+id/judgeLine2"
@@ -219,7 +228,7 @@
                 android:background="#8C53B4"
                 android:fontFamily="@font/sangmoon"
                 android:gravity="center"
-                android:text="게임 진행 페이지"
+                android:text="GO-RHYTHM!!"
                 android:textColor="#FFFFFF"
                 android:textSize="40dp" />
 

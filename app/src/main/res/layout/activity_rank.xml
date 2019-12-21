@@ -14,7 +14,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/sangmoon"
         android:gravity="center"
-        android:text="RANKING"
+        android:text="PLAYLIST"
         android:textColor="#E9B213"
         android:textSize="40dp" />
 
