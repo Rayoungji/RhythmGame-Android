@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/rythmbackground"
-    tools:context=".Rank">
+    tools:context=".rankModel.Rank_for_song.SongRank">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,18 +14,27 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/sangmoon"
         android:gravity="center"
-        android:text="PLAYLIST"
+        android:text="RANKING"
         android:textColor="#E9B213"
         android:textSize="40dp" />
 
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sangmoon"
+        android:gravity="center"
+        android:hint="SongName"
+        android:textColor="#E9B213"
+        android:textSize="40dp" />
+
+
     <ListView
-        android:id="@+id/Rank"
+        android:id="@+id/Rank_wishyouweregay"
         android:layout_width="350dp"
         android:layout_height="400dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        >
-
-    </ListView>
+      />
 
 </LinearLayout>

@@ -58,16 +58,12 @@ public class Login extends AppCompatActivity {
 
                             loginEditor.putString("loginid",ID.getText().toString());
                             loginEditor.commit();
+                            Toast.makeText(Login.this,"로그인에 성공하셨습니다", Toast.LENGTH_SHORT).show();
                             AlertDialog.Builder Start=new AlertDialog.Builder(Login.this);
-                            Start.setMessage("로그인에 성공하셨습니다. 게임 화면으로 이동을 위해 버튼을 클릭해주세요");
-                            Start.setPositiveButton("게임 화면 이동하기", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
+
                                     Intent SecondMain=new Intent(getApplicationContext(), SecondMain.class);
                                     startActivity(SecondMain);
-                                }
-                            });
-                            Start.show();
+
                         }else{
                             Toast.makeText(Login.this,"로그인에 실패하셨습니다", Toast.LENGTH_SHORT).show();
                         }

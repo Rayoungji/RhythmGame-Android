@@ -22,6 +22,7 @@ import com.example.skunivproject.Domain.Dto.Dto.Dto.Ranking.RankDto;
 import com.example.skunivproject.gameModel.Beat;
 import com.example.skunivproject.gameModel.Judge;
 import com.example.skunivproject.gameModel.RythmTimerTask;
+import com.example.skunivproject.rankModel.Rank_for_song.SongRank;
 
 import java.util.Timer;
 
@@ -185,14 +186,14 @@ public class GamePage extends AppCompatActivity {
                         new Beat(1200, 1),
                         new Beat(2200, 2),
                         new Beat(3200, 3),
-                        new Beat(4500, 7),
-                        new Beat(5800, 6),
-                        new Beat(6800, 5),
-                        new Beat(7800, 4),
-                        new Beat(9000, 8),
-                        new Beat(10000,9),
-                        new Beat(18000, 10),
-                        new Beat(19000, 11),
+                        new Beat(5500, 7),
+                        new Beat(7800, 6),
+                        new Beat(9800, 5),
+                        new Beat(10800, 4),
+                        new Beat(12000, 8),
+                        new Beat(18000,9),
+                        new Beat(13000, 10),
+                        new Beat(15000, 11),
                         new Beat(20000, 12),
                         new Beat(21000, 15),
                         new Beat(25000, 13),
@@ -233,77 +234,6 @@ public class GamePage extends AppCompatActivity {
                      }
 
         });
-//        int i=0;
-//        while(i<img_array.length) {
-//            final int finalI = i;
-//            touch1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    Log.d("is touch??", "yes!!");
-//
-//
-//                        int sc = new Judge().score(img_array[finalI]);
-//                        if (sc == 1) {
-//                            counter++;
-//                            Toast toast = Toast.makeText(getApplicationContext(), "good!!", Toast.LENGTH_LONG);
-//                            toast.setGravity(Gravity.TOP | Gravity.LEFT, 200, 200);
-//                            toast.show();
-//                            Log.d("점수는??", "good" + counter);
-//                        } else {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Miss!!", Toast.LENGTH_LONG);
-//                            toast.setGravity(Gravity.TOP | Gravity.LEFT, 200, 200);
-//                            toast.show();
-//                            Log.d("점수는??", "miss");
-//                        }
-//                    }
-//
-//
-//            });
-//
-//            i+=3;
-//        }
-
-
-
-//        touch2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (beats[finalI].getNoteName() % 3 == 1) {
-//                    int sc = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                    if (sc == 1) {
-//                        counter++;
-//                        text.setText("Good!!");
-//                    }
-//                    else {
-//                        text.setText(("Miss!!"));
-//                    }
-//                }
-//            }
-//
-//
-//
-//        });
-
-//        touch3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (beats[finalI].getNoteName() % 3 == 2) {
-//                    int sc = new Judge().score(img_array[beats[finalI].getNoteName()]);
-//                    if (sc == 1) {
-//                        counter++;
-//                        text.setText("Good!!");
-//                    }
-//                    else {
-//                        text.setText(("Miss!!"));
-//                    }
-//                }
-//            }
-//
-//
-//
-//        });
-
 
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -320,12 +250,12 @@ public class GamePage extends AppCompatActivity {
                 Log.d("점수 : ", ""+counter);
                 AlertDialog.Builder exit=new AlertDialog.Builder(GamePage.this);
                 exit.setTitle(">>게임을 끝내시겠습니까?<<");
-                exit.setMessage("게임을 끝내시면 현제 스코어가 랭킹됩니다");
-                exit.setPositiveButton("끝내기", new DialogInterface.OnClickListener() {
+                exit.setMessage("게임을 끝내시면 현재 스코어가 랭킹됩니다");
+                exit.setPositiveButton("끝내고 랭킹 확인하기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent done=new Intent(getApplicationContext(),GameDone.class);
-                        done.putExtra("score",counter);
+                        Intent done=new Intent(getApplicationContext(), SongRank.class);
+                        done.putExtra("songTitle",imageName);
                         startActivity(done);
 
                     }

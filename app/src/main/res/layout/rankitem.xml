@@ -12,6 +12,8 @@
         android:gravity="center"
         android:text="1"
         android:textSize="30dp"
+        android:fontFamily="@font/sangmoon"
+
         android:id="@+id/RankNum"/>
 
     <TextView
@@ -19,6 +21,8 @@
         android:layout_height="45dp"
         android:gravity="center"
         android:text="Playername"
+        android:fontFamily="@font/sangmoon"
+
         android:textSize="30dp"
         android:id="@+id/PlayerId"/>
 
@@ -26,6 +30,8 @@
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:gravity="center"
+        android:fontFamily="@font/sangmoon"
+
         android:text="score"
         android:textSize="30dp"
         android:id="@+id/Score"/>

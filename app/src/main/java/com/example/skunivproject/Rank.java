@@ -1,19 +1,10 @@
 package com.example.skunivproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.content.ContextCompat;
 import android.os.Bundle;
 import android.widget.ListView;
-
-import com.example.skunivproject.Domain.Dto.Dto.Dto.Ranking.RankListDto;
-import com.example.skunivproject.Retrofit.BuildRetrofit;
-import com.example.skunivproject.rankModel.RankListAdapter;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.skunivproject.rankModel.PlayListAdapter;
 
 public class Rank extends AppCompatActivity {
 
@@ -23,28 +14,38 @@ public class Rank extends AppCompatActivity {
         setContentView(R.layout.activity_rank);
 
         final ListView listView=(ListView)findViewById(R.id.Rank);
-        final RankListAdapter adapter=new RankListAdapter();
 
+        final PlayListAdapter adapter=new PlayListAdapter();
 
-        Call<List<RankListDto>> response=BuildRetrofit.getInstance().getRetrofitInterface().getRank("speechless");
-        response.enqueue(new Callback<List<RankListDto>>() {
-            @Override
-            public void onResponse(Call<List<RankListDto>> call, Response<List<RankListDto>> response) {
-                List<RankListDto> resource=response.body(); //리스폰스 받아오기
+        final int img[] = {
+                R.drawable.wishyouweregay,
+                R.drawable.mine,
+                R.drawable.paris,
+                R.drawable.holiday,
+                R.drawable.itzy2,
+                R.drawable.snapping2,
+                R.drawable.frozen,
+                R.drawable.frozen2,
+                R.drawable.speechless
+        };
 
-                for(RankListDto re : resource){
-                    adapter.addItem(re.getid(),re.getScore());
-                }
+        final String imgName[]={
+                "wish you were gay",
+                "mine",
+                "paris",
+                "holiday",
+                "itzy",
+                "snapping",
+                "frozen",
+                "frozen2",
+                "speechless"
+        };
 
-                listView.setAdapter(adapter);
+        for(int i=0; i<img.length; i++){
+            adapter.addItem(ContextCompat.getDrawable(this,img[i]),imgName[i]);
+        }
 
-            }
-
-            @Override
-            public void onFailure(Call<List<RankListDto>> call, Throwable t) {
-
-            }
-        });
+        listView.setAdapter(adapter);
 
     }
 

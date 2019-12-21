@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 howto.setTitle(">>게임 소개<<");
                 howto.setMessage(
                         "이 게임은 플레이어가 리듬에나 음악에 맞춰서 동작을 취하는 게임이다." +
-                                "네갈래의 길이 있고 여러 노트들이 리듬에 맞춰 무작위로 떨어지며" +
+                                "세갈래의 길이 있고 여러 노트들이 리듬에 맞춰 무작위로 떨어지며" +
                                 "플레이어는 노트가 판정선 사이에 위치하였을 때 노트를 클릭하여 점수를 얻게된다."
                 );
                  //howto.setIcon();
